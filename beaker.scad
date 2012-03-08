@@ -25,7 +25,8 @@ module cup() {
 echo (str(
 	"Cup ",
 	"height=", height, ", ",
-	"radius=", radius));
+	"outer radius=", radius, ", ",
+	"inner radius=", radius_inner));
 
 // Render
 cup();
