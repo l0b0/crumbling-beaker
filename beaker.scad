@@ -1,6 +1,9 @@
+// Constants
+golden_ratio = (1 + sqrt(5)) / 2;
+pi = 3.14159265;
+
 // Configuration
 height = 100;
-golden_ratio = (1 + sqrt(5)) / 2;
 radius = height / 2 * golden_ratio * (3/8);
 wall_thickness = height / 25;
 bottom_height = height / 20; // Empty space below the bottom
@@ -30,7 +33,8 @@ echo (str(
 	"Cup ",
 	"height=", height, ", ",
 	"outer radius=", radius, ", ",
-	"inner radius=", radius_inner));
+	"inner radius=", radius_inner, ", ",
+	"volume=", pi * pow(radius_inner, 2) * hull_height));
 
 // Render
 cup();
