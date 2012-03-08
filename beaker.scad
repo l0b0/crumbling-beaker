@@ -1,6 +1,7 @@
 // Configuration
 height = 100;
-radius = 50;
+golden_ratio = (1 + sqrt(5)) / 2;
+radius = height / 2 * golden_ratio * (3/8);
 
 // Modules
 module walls() {
