@@ -15,6 +15,9 @@ bottom_outer_cylinder_height = bottom_height / 2;
 bottom_inner_cylinder_height = bottom_height;
 bottom_outer_cylinder_radius = hull_radius;
 bottom_inner_cylinder_radius = hull_radius - (bottom_inner_cylinder_height - bottom_outer_cylinder_height);
+bottom_torus_circle_radius = bottom_outer_cylinder_radius - bottom_inner_cylinder_radius;
+bottom_torus_radius = bottom_inner_cylinder_radius;
+bottom_torus_z = bottom_inner_cylinder_height - bottom_outer_cylinder_height;
 
 // Modules
 module walls() {
@@ -32,11 +35,19 @@ module bottom_cylinders() {
 		cylinder(h = bottom_inner_cylinder_height, r = bottom_inner_cylinder_radius);
 	}
 }
+module bottom_torus() {
+	rotate_extrude(convexity = 10) {
+		translate([bottom_torus_radius, bottom_torus_z, 0]) {
+			circle(r = bottom_torus_circle_radius);
+		}
+	}
+}
 module cup() {
 	difference() {
 		walls();
 		hull_cylinder();
 		bottom_cylinders();
+		bottom_torus();
 	}
 }
 
