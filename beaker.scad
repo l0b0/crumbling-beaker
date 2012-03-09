@@ -9,21 +9,21 @@ wall_thickness = height / 25;
 bottom_height = height / 10; // Empty space below the bottom
 
 // Calculations
-radius_inner = radius - wall_thickness;
+hull_radius = radius - wall_thickness;
 hull_height = height - bottom_height - wall_thickness;
 bottom_outer_cylinder_height = bottom_height / 2;
 bottom_inner_cylinder_height = bottom_height;
-bottom_outer_cylinder_radius = radius_inner;
-bottom_inner_cylinder_radius = radius_inner - (bottom_inner_cylinder_height - bottom_outer_cylinder_height);
+bottom_outer_cylinder_radius = hull_radius;
+bottom_inner_cylinder_radius = hull_radius - (bottom_inner_cylinder_height - bottom_outer_cylinder_height);
 
 // Modules
 module walls() {
-	// To see the bottom plate, replace radius with radius_inner
+	// To see the bottom plate, replace radius with hull_radius
 	cylinder(h = height, r = radius);
 }
 module hull_cylinder() {
 	translate([0, 0, wall_thickness + bottom_height]) {
-		cylinder(h = hull_height, r = radius_inner);
+		cylinder(h = hull_height, r = hull_radius);
 	}
 }
 module bottom_cylinders() {
@@ -45,8 +45,8 @@ echo (str(
 	"Cup ",
 	"height=", height, ", ",
 	"outer radius=", radius, ", ",
-	"inner radius=", radius_inner, ", ",
-	"volume=", pi * pow(radius_inner, 2) * hull_height / 1000000));
+	"inner radius=", hull_radius, ", ",
+	"volume=", pi * pow(hull_radius, 2) * hull_height / 1000000));
 
 // Render
 cup();
