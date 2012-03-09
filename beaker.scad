@@ -2,7 +2,7 @@
 golden_ratio = (1 + sqrt(5)) / 2;
 pi = 3.14159265;
 
-// Configuration
+// Configuration (all numbers in mm)
 height = 100;
 radius = height / 2 * golden_ratio * (3/8);
 wall_thickness = height / 25;
@@ -34,7 +34,7 @@ echo (str(
 	"height=", height, ", ",
 	"outer radius=", radius, ", ",
 	"inner radius=", radius_inner, ", ",
-	"volume=", pi * pow(radius_inner, 2) * hull_height));
+	"volume=", pi * pow(radius_inner, 2) * hull_height / 1000000));
 
 // Render
 cup();
