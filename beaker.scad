@@ -14,6 +14,7 @@ hull_height = height - bottom_height - wall_thickness;
 
 // Modules
 module walls() {
+	// To see the bottom plate, replace radius with radius_inner
 	cylinder(h = height, r = radius);
 }
 module hull_cylinder() {
