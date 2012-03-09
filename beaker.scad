@@ -21,10 +21,14 @@ module hull_cylinder() {
 		cylinder(h = hull_height, r = radius_inner);
 	}
 }
+module bottom_cylinder() {
+	cylinder(h = bottom_height, r = radius_inner);
+}
 module cup() {
 	difference() {
 		walls();
 		hull_cylinder();
+		bottom_cylinder();
 	}
 }
 
