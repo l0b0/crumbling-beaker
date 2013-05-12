@@ -31,8 +31,12 @@ module hull_cylinder() {
 }
 module bottom_cylinders() {
 	union() {
-		cylinder(h = bottom_outer_cylinder_height, r = bottom_outer_cylinder_radius);
-		cylinder(h = bottom_inner_cylinder_height, r = bottom_inner_cylinder_radius);
+		cylinder(
+			h = bottom_outer_cylinder_height,
+			r = bottom_outer_cylinder_radius);
+		cylinder(
+			h = bottom_inner_cylinder_height,
+			r = bottom_inner_cylinder_radius);
 	}
 }
 module bottom_torus() {
@@ -52,7 +56,7 @@ module cup() {
 }
 
 // Documentation
-echo (str(
+echo(str(
 	"Cup ",
 	"height=", height, ", ",
 	"outer radius=", radius, ", ",
